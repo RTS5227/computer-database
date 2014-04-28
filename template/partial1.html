@@ -1,0 +1,77 @@
+<h1 id="homeTitle">{{item.total||0}} computers found</h1>
+
+<div class="alert-message {{flash.status}}"
+     ng-show="flash.status">
+    <strong>{{flash.data}}</strong>
+</div>
+
+<div id="actions">
+    <form ng-submit="filter()">
+        <input type="search"
+               ng-model="search"
+               placeholder="Filter by computer name...">
+        <input type="submit"
+               value="Filter by name"
+               class="btn primary">
+    </form>
+
+    <a class="btn success" id="add" href="#/computers/new">Add a new computer</a>
+</div>
+
+
+<table class="computers zebra-striped">
+    <thead>
+    <tr>
+        <th class="name header {{descending?'headerSortDown':'headerSortUp'}}">
+            <a href="" ng-click="reverse('computer')">Computer name</a>
+        </th>
+        <th class="introduced header {{descending?'headerSortDown':'headerSortUp'}}">
+            <a href="" ng-click="reverse('introduced')">Introduced</a>
+        </th>
+        <th class="discontinued header {{descending?'headerSortDown':'headerSortUp'}}">
+            <a href="" ng-click="reverse('discontinued')">Discontinued</a>
+        </th>
+        <th class="company_name header {{descending?'headerSortDown':'headerSortUp'}}">
+            <a href="" ng-click="reverse('company')">Company</a>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+    <tr ng-repeat="computer in computers">
+        <td><a href="#/computers/{{computer._id}}">{{computer.name}}</a></td>
+        <td>
+            <em>{{computer.introduced||'-'}}</em>
+        </td>
+        <td>
+            <em>{{computer.discontinued||'-'}}</em>
+        </td>
+        <td>
+            <em>{{computer.company_id||'-'}}</em>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+
+<div id="pagination" class="pagination">
+    <ul>
+
+        <li class="prev" ng-class="{disabled:currentPage==1}">
+            <a href ng-click="prev()">&larr; Previous</a>
+        </li>
+
+        <li class="current">
+            <a>Displaying {{item.start||0}} to {{item.end||0}} of {{item.total||0}}</a>
+        </li>
+
+        <li class="next" ng-class="{disabled:currentPage==totalPage}">
+            <a href="" ng-click="next()">Next &rarr;</a>
+        </li>
+
+    </ul>
+</div>
+
+
+        

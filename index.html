@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/main.css">
+    <base href="http://localhost:5984/_www/computer/">
+    <title>My AngularJS App</title>
+</head>
+<body ng-cloak="true">
+<header class="topbar">
+    <h1 class="fill">
+        <a href="#/">
+            AngularJS sample application &mdash; Computer database
+        </a>
+    </h1>
+</header>
+<section id="main">
+    <div ng-view></div>
+</section>
+
+<div>Angular app: v<span app-version></span></div>
+</body>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-route.js"></script>
+<script src="js/angular-cornercouch.js"></script>
+<script src="app/main.js"></script>
+<script src="app/controller.js"></script>
+<script src="app/service.js"></script>
+<script src="app/directive.js"></script>
+<script src="app/filter.js"></script>
+</html>

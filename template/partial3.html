@@ -1,0 +1,73 @@
+<h1>Edit computer</h1>
+
+
+<form ng-submit="updateComputer()">
+    <fieldset>
+        <div class="clearfix ">
+            <label for="name">Computer name</label>
+
+            <div class="input">
+
+                <input type="text"
+                       ng-model="computer.name"
+                       id="name"
+                       name="name">
+
+                <span class="help-inline">Required</span>
+            </div>
+        </div>
+
+
+        <div class="clearfix ">
+            <label for="introduced">Introduced date</label>
+
+            <div class="input">
+                <input type="text"
+                       ng-model="computer.introduced"
+                       id="introduced"
+                       name="introduced">
+                <span class="help-inline">Date (&#x27;yyyy-MM-dd&#x27;)</span>
+            </div>
+        </div>
+
+
+        <div class="clearfix ">
+            <label for="discontinued">Discontinued date</label>
+
+            <div class="input">
+                <input type="text"
+                       ng-model="computer.discontinued"
+                       id="discontinued"
+                       name="discontinued">
+                <span class="help-inline">Date (&#x27;yyyy-MM-dd&#x27;)</span>
+            </div>
+        </div>
+
+
+        <div class="clearfix ">
+            <label for="company_id">Company</label>
+
+            <div class="input">
+                <select id="company_id"
+                        ng-model="company.id"
+                        ng-options="company.id as company.id for company in companies">
+                    <option value="">-- Choose a company --</option>
+                </select>
+                <span class="help-inline"></span>
+            </div>
+        </div>
+
+    </fieldset>
+
+    <div class="actions">
+        <input type="submit" value="Update this computer" class="btn primary"> or
+        <a href="#/" class="btn">Cancel</a>
+    </div>
+
+</form>
+
+<form ng-submit="delete(computer)" class="topRight">
+
+    <input type="submit" value="Delete this computer" class="btn danger">
+
+</form>
